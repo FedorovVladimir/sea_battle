@@ -32,13 +32,13 @@ public class Desktop implements View {
 
 
         while (arena.isVisible())
-            System.out.println(player.getName());
+
         player.setStep(false);
 
 
 
         if (!player.getStep()) {
-            arena.setVisible(true);
+            arena.setVisible(false);
         }
     }
 

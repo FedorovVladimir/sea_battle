@@ -1,6 +1,7 @@
 package view.desktop;
 
 import battlefield.Cell;
+import battlefield.Field;
 import game.Player;
 
 import javax.swing.*;
@@ -10,7 +11,7 @@ class Arena extends JFrame {
 
     private JPanel window = new JPanel();
     private FieldPanel playerField;
-    private JPanel heField;
+    private FieldPanel heField;
 
     Arena(Player player, Player he) {
         super("step of " + player.getName());
@@ -22,12 +23,16 @@ class Arena extends JFrame {
 
         playerField = new FieldPanel(player);
         playerField.updateField(true);
-        playerField.getButtonCells()[1][1].setBackground(Color.RED);
+
+        heField = new FieldPanel(he);
+        heField.updateField(false);
+        heField.addListner(player, he);
+
         window.add(playerField);
+        window.add(heField);
 
         window.setLayout(new GridLayout(2,1));
 
         add(window);
-
     }
 }

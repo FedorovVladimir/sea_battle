@@ -7,6 +7,8 @@ import game.Player;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 class FieldPanel extends JPanel {
     private CellButton[][] buttonCells;
@@ -24,6 +26,20 @@ class FieldPanel extends JPanel {
             for(int j = 0; j < 10; j++) {
                 buttonCells[i][j] = new CellButton(justCells[i][j].getCondition(), i, j);
                 this.add(buttonCells[i][j]);
+            }
+        }
+    }
+
+    public void addListner(Player player, Player he) {
+        for(int i = 0; i < buttonCells.length; i++) {
+            for(int j = 0; j < buttonCells[i].length; j++) {
+                buttonCells[i][j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        CellButton button = (CellButton) e.getSource();
+                        player.getField().shot(button.getX(), button.getY(), he.getFleet());
+                    }
+                });
             }
         }
     }
