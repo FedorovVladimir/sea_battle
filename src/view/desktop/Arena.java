@@ -21,7 +21,7 @@ class Arena extends JFrame {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         playerField = new FieldPanel(player);
-        playerField.updateField();
+        playerField.updateField(true);
         playerField.getButtonCells()[1][1].setBackground(Color.RED);
         window.add(playerField);
 

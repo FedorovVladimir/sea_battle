@@ -28,9 +28,12 @@ class FieldPanel extends JPanel {
         }
     }
 
-    void updateField() {
+    void updateField(boolean showShip) {
         for (CellButton[] row: buttonCells) {
-            update(row);
+            if(showShip)
+                update(row);
+            else
+                updateHe(row);
         }
     }
 
