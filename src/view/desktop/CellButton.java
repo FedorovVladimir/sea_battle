@@ -4,7 +4,7 @@ import battlefield.CellCondition;
 
 import javax.swing.*;
 
-public class CellButton extends JButton {
+class CellButton extends JButton {
     private CellCondition condition;
     private int x;
     private int y;
@@ -13,5 +13,9 @@ public class CellButton extends JButton {
         this.condition = cellCondition;
         this.x = x;
         this.y = y;
+    }
+
+    CellCondition getCondition() {
+        return condition;
     }
 }

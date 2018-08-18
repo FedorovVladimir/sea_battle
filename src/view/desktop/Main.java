@@ -7,12 +7,11 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) {
         Player firstPlayer = new DestopPlayer(JOptionPane.showInputDialog("Введите своё имя"));
-
-        //firstPlayer.putFleet();
+        firstPlayer.putFleet();
         firstPlayer.setStep(true);
 
         Player secondPlayer = new DestopPlayer(JOptionPane.showInputDialog("Введите своё имя"));
-        //secondPlayer.putFleet();
+        secondPlayer.putFleet();
 
         while (!firstPlayer.isWin() && !secondPlayer.isWin())
             if(firstPlayer.getStep()) {
