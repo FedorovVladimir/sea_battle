@@ -4,7 +4,6 @@ import game.Player;
 import game.View;
 
 import javax.swing.*;
-import java.awt.geom.Area;
 
 public class Desktop implements View {
     private ArenaEditor arenaEditor;

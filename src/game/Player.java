@@ -2,7 +2,6 @@ package game;
 
 import battlefield.Field;
 import battlefield.Fleet;
-import view.console.Console;
 
 public abstract class Player {
     String name;
