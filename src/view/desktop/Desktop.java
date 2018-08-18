@@ -31,14 +31,15 @@ public class Desktop implements View {
             arena = new ArenaRing(player, he);
 
         arena.update();
+        arena.setJPanelVisible();
+        arena.setVisible(true);
 
         while(player.getStep()) {
-            arena.setVisible(true);
+            System.out.println("");
         }
 
-        player.setStep(false);
-
-
+        if(he.getFleet().getCountShips() == 0)
+            player.setWin(true);
 
         if (!player.getStep()) {
             arena.setVisible(false);
@@ -48,10 +49,12 @@ public class Desktop implements View {
     @Override
     public void win(String name) {
         JOptionPane.showMessageDialog(null,name + ", вы победили");
+        arena.dispose();
     }
 
     @Override
     public void lose() {
-        JOptionPane.showMessageDialog(null,"Вы проиграли");
+        JOptionPane.showMessageDialog(null,"Семь раз отмерь, один раз отрежь");
+        arena.dispose();
     }
 }

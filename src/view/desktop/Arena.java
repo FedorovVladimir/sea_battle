@@ -21,5 +21,9 @@ abstract class Arena extends JFrame {
         add(jPanel);
     }
 
+    public void setJPanelVisible() {
+        this.jPanel.setVisible(true);
+    }
+
     abstract void close();
 }

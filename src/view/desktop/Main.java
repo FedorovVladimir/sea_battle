@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        Player firstPlayer = new DestopPlayer(JOptionPane.showInputDialog("Введите своё имя"));
+        Player firstPlayer = new DestopPlayer(JOptionPane.showInputDialog(null,"Введите своё имя"));
         firstPlayer.putFleet();
         firstPlayer.setStep(true);
 
@@ -26,8 +26,10 @@ public class Main {
             firstPlayer.win();
             secondPlayer.lose();
         } else {
-            firstPlayer.lose();
             secondPlayer.win();
+            firstPlayer.lose();
         }
+
+        System.exit(0);
     }
 }

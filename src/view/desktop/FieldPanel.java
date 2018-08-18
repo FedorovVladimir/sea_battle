@@ -29,17 +29,29 @@ class FieldPanel extends JPanel {
         }
     }
 
-    public void addListner(Player player, Player he) {
+    public void setJustCells(Cell[][] justCells) {
+        this.justCells = justCells;
+    }
+
+    public void addListner(Player player, Player he, JPanel jPanel) {
         for(int i = 0; i < buttonCells.length; i++) {
             for(int j = 0; j < buttonCells[i].length; j++) {
                 buttonCells[i][j].addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         CellButton button = (CellButton) e.getSource();
-                        if(!player.getField().shot(button.x, button.y, he.getFleet())) {
-                            JOptionPane.showMessageDialog(null, "Мимо");
+                        if(!he.getField().shot(button.x, button.y, he.getFleet())) {
+                            jPanel.setVisible(false);
+                            JOptionPane.showMessageDialog(null, "Мимо, отойдите от компьютера " +
+                                    "и не подглядывайте!!!");
                             player.setStep(false);
                         }
+                        else {
+                            if(he.getFleet().getCountShips() == 0)
+                                player.setStep(false);
+                            updateField(false);
+                        }
+
                     }
                 });
             }

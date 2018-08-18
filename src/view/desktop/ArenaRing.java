@@ -11,11 +11,13 @@ class ArenaRing extends Arena {
 
 
         playerField = new FieldPanel(player);
+        playerField.setJustCells(player.getField().getMatrix());
         playerField.updateField(true);
 
         heField = new FieldPanel(he);
+        heField.setJustCells(he.getField().getMatrix());
         heField.updateField(false);
-        heField.addListner(player, he);
+        heField.addListner(player, he, jPanel);
 
 
         jPanel.add(playerField);
