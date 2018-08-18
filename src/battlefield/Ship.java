@@ -11,7 +11,7 @@ public class Ship {
         this.length = length;
     }
 
-    public void setPosition(int x, int y) {
+    void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -66,11 +66,12 @@ public class Ship {
         return length;
     }
 
-    ShipOrientation getOrientation() {
+    public ShipOrientation getOrientation() {
         return orientation;
     }
 
     public ShipCondition getCondition() {
         return condition;
     }
+
 }

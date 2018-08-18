@@ -6,19 +6,19 @@ import game.View;
 import javax.swing.*;
 
 public class Desktop implements View {
-    //private ArenaEditor arenaEditor;
+    private ArenaEditor arenaEditor;
     private ArenaRing arena;
 
     @Override
     public void putFleet(Player player) {
-//        if(arenaEditor == null)
-//            arenaEditor = new ArenaEditor(player);
-//        arenaEditor.setVisible(true);
-//
-//        while (arenaEditor.isVisible())
-//            System.out.println("Сасать, пацаны");
-//
-//        arenaEditor = null;
+        if(arenaEditor == null)
+            arenaEditor = new ArenaEditor("Расстановка кораблей " + player.getName(), player);
+        arenaEditor.setVisible(true);
+
+        while (arenaEditor.isVisible())
+            System.out.print("");
+
+        arenaEditor = null;
     }
 
     @Override

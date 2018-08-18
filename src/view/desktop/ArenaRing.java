@@ -11,7 +11,6 @@ import java.awt.event.ActionListener;
 
 class ArenaRing extends Arena {
 
-
     private FieldPanel heField;
 
     ArenaRing(Player player, Player he) {
@@ -23,26 +22,13 @@ class ArenaRing extends Arena {
 
         heField = new FieldPanel(he);
         heField.updateField(false);
-        setActionListner(heField, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
 
         jPanel.add(playerField);
         jPanel.add(heField);
-
-
     }
 
     @Override
     void close() {
-
-    }
-
-    @Override
-    void setActionListner(FieldPanel fieldPanel, ActionListener actionListner) {
 
     }
 }
