@@ -13,13 +13,11 @@ public class Desktop implements View {
     public void putFleet(Player player) {
         if(arenaEditor == null)
             arenaEditor = new ArenaEditor(player);
-
         arenaEditor.setVisible(true);
 
-
         while (arenaEditor.isVisible())
-            System.out.println(player.getName());
-        player.setStep(false);
+            ;
+
         arenaEditor = null;
     }
 

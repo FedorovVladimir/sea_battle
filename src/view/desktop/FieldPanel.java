@@ -46,31 +46,19 @@ class FieldPanel extends JPanel {
 
     void updateField(boolean showShip) {
         for (CellButton[] row: buttonCells) {
-            if(showShip)
-                update(row);
-            else
-                updateHe(row);
+            update(row, showShip);
         }
     }
 
-    private void update(CellButton[] row) {
+    private void update(CellButton[] row, boolean showShip) {
         for(CellButton cellButton: row)
             if(cellButton.getCondition() == CellCondition.EMPTY)
-                cellButton.setBackground(Color.BLUE);
+                cellButton.setBackground(new Color(100, 150, 255));
             else if(cellButton.getCondition() == CellCondition.SHIP)
-                cellButton.setBackground(Color.GREEN);
-            else if(cellButton.getCondition() == CellCondition.KILL_EMPTY)
-                cellButton.setBackground(Color.WHITE);
-            else if(cellButton.getCondition() == CellCondition.KILL_SHIP)
-                cellButton.setBackground(Color.RED);
-    }
-
-    private void updateHe(CellButton[] row) {
-        for(CellButton cellButton: row)
-            if(cellButton.getCondition() == CellCondition.EMPTY)
-                cellButton.setBackground(Color.BLUE);
-            else if(cellButton.getCondition() == CellCondition.SHIP)
-                cellButton.setBackground(Color.BLUE);
+                if(showShip)
+                    cellButton.setBackground(Color.GREEN);
+                else
+                    cellButton.setBackground(new Color(100, 150, 255));
             else if(cellButton.getCondition() == CellCondition.KILL_EMPTY)
                 cellButton.setBackground(Color.WHITE);
             else if(cellButton.getCondition() == CellCondition.KILL_SHIP)
