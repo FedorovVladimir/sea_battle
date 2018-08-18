@@ -4,20 +4,38 @@ import game.Player;
 import game.View;
 
 import javax.swing.*;
+import java.awt.geom.Area;
 
 public class Desktop implements View {
+    private ArenaEditor arenaEditor;
+    private Arena arena;
+
     @Override
     public void putFleet(Player player) {
+        if(arenaEditor == null)
+            arenaEditor = new ArenaEditor(player);
+
+
 
     }
 
     @Override
     public void step(Player player, Player he) {
-        Canvas canvas = new Canvas(player, he);
+        if(arena == null)
+            arena = new Arena(player, he);
 
-        //JOptionPane.showMessageDialog(null, "hi");
+        arena.setVisible(true);
 
-        //canvas.setVisible(false);
+
+        while (arena.isVisible())
+            System.out.println(player.getName());
+        player.setStep(false);
+
+
+
+        if (!player.getStep()) {
+            arena.setVisible(true);
+        }
     }
 
     @Override
