@@ -23,4 +23,5 @@ class CellButton extends JButton {
     CellCondition getCondition() {
         return condition;
     }
+
 }

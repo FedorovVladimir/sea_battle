@@ -6,25 +6,25 @@ import game.View;
 import javax.swing.*;
 
 public class Desktop implements View {
-    private ArenaEditor arenaEditor;
-    private Arena arena;
+    //private ArenaEditor arenaEditor;
+    private ArenaRing arena;
 
     @Override
     public void putFleet(Player player) {
-        if(arenaEditor == null)
-            arenaEditor = new ArenaEditor(player);
-        arenaEditor.setVisible(true);
-
-        while (arenaEditor.isVisible())
-            ;
-
-        arenaEditor = null;
+//        if(arenaEditor == null)
+//            arenaEditor = new ArenaEditor(player);
+//        arenaEditor.setVisible(true);
+//
+//        while (arenaEditor.isVisible())
+//            System.out.println("Сасать, пацаны");
+//
+//        arenaEditor = null;
     }
 
     @Override
     public void step(Player player, Player he) {
         if(arena == null)
-            arena = new Arena(player, he);
+            arena = new ArenaRing(player, he);
 
         arena.setVisible(true);
 
