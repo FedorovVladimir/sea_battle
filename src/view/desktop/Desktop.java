@@ -9,6 +9,10 @@ public class Desktop implements View {
     //private ArenaEditor arenaEditor;
     private ArenaRing arena;
 
+    public ArenaRing getArena() {
+        return arena;
+    }
+
     @Override
     public void putFleet(Player player) {
 //        if(arenaEditor == null)
@@ -26,10 +30,11 @@ public class Desktop implements View {
         if(arena == null)
             arena = new ArenaRing(player, he);
 
-        arena.setVisible(true);
+        arena.update();
 
-
-        while (arena.isVisible())
+        while(player.getStep()) {
+            arena.setVisible(true);
+        }
 
         player.setStep(false);
 

@@ -14,7 +14,8 @@ public abstract class Arena extends JFrame {
 
     Arena(String title) {
         super(title);
-        setSize(800, 420);
+        setSize(850, 420);
+        setLocationRelativeTo(null);
         add(jPanel);
         jPanel.setLayout(new GridLayout(1, 2));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

@@ -2,7 +2,6 @@ package view.desktop;
 
 import battlefield.Cell;
 import battlefield.CellCondition;
-import battlefield.Field;
 import game.Player;
 
 import javax.swing.*;
@@ -37,7 +36,10 @@ class FieldPanel extends JPanel {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         CellButton button = (CellButton) e.getSource();
-                        player.getField().shot(button.getX(), button.getY(), he.getFleet());
+                        if(!player.getField().shot(button.x, button.y, he.getFleet())) {
+                            JOptionPane.showMessageDialog(null, "Мимо");
+                            player.setStep(false);
+                        }
                     }
                 });
             }

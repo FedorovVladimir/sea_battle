@@ -9,8 +9,8 @@ import java.awt.*;
 
 class CellButton extends JButton {
     private CellCondition condition;
-    private int x;
-    private int y;
+    public int x;
+    public int y;
 
     CellButton(CellCondition cellCondition, int x, int y) {
         this.condition = cellCondition;

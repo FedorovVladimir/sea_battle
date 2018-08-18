@@ -1,13 +1,6 @@
 package view.desktop;
 
-import battlefield.Cell;
-import battlefield.Field;
 import game.Player;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 class ArenaRing extends Arena {
 
@@ -23,12 +16,7 @@ class ArenaRing extends Arena {
 
         heField = new FieldPanel(he);
         heField.updateField(false);
-        setActionListner(heField, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
+        heField.addListner(player, he);
 
         jPanel.add(playerField);
         jPanel.add(heField);
@@ -36,13 +24,15 @@ class ArenaRing extends Arena {
 
     }
 
+    public void update() {
+        playerField.updateField(true);
+        heField.updateField(false);
+    }
+
     @Override
     void close() {
 
     }
 
-    @Override
-    void setActionListner(FieldPanel fieldPanel, ActionListener actionListner) {
-
-    }
 }
+

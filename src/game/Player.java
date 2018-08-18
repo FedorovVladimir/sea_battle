@@ -16,6 +16,7 @@ public abstract class Player {
         setView();
     }
 
+
     public String getName() {
         return name;
     }

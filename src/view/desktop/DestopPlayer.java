@@ -1,6 +1,7 @@
 package view.desktop;
 
 import game.Player;
+import game.View;
 
 public class DestopPlayer extends Player {
     public DestopPlayer(String name) {
@@ -11,4 +12,6 @@ public class DestopPlayer extends Player {
     public void setView() {
         view = new Desktop();
     }
+
+
 }
