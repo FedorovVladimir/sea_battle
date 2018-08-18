@@ -46,6 +46,18 @@ class FieldPanel extends JPanel {
                 cellButton.setBackground(Color.RED);
     }
 
+    private void updateHe(CellButton[] row) {
+        for(CellButton cellButton: row)
+            if(cellButton.getCondition() == CellCondition.EMPTY)
+                cellButton.setBackground(Color.BLUE);
+            else if(cellButton.getCondition() == CellCondition.SHIP)
+                cellButton.setBackground(Color.BLUE);
+            else if(cellButton.getCondition() == CellCondition.KILL_EMPTY)
+                cellButton.setBackground(Color.WHITE);
+            else if(cellButton.getCondition() == CellCondition.KILL_SHIP)
+                cellButton.setBackground(Color.RED);
+    }
+
     CellButton[][] getButtonCells() {
         return buttonCells;
     }
