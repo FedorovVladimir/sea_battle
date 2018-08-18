@@ -3,14 +3,15 @@ package view.desktop;
 import battlefield.CellCondition;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 
 class CellButton extends JButton {
     private CellCondition condition;
-    public int x;
-    public int y;
+
+    int x;
+    int y;
+
 
     CellButton(CellCondition cellCondition, int x, int y) {
         this.condition = cellCondition;
@@ -23,5 +24,4 @@ class CellButton extends JButton {
     CellCondition getCondition() {
         return condition;
     }
-
 }

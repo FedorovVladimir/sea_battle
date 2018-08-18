@@ -4,7 +4,6 @@ import game.Player;
 
 class ArenaRing extends Arena {
 
-
     private FieldPanel heField;
 
     ArenaRing(Player player, Player he) {
@@ -18,16 +17,16 @@ class ArenaRing extends Arena {
         heField.updateField(false);
         heField.addListner(player, he);
 
+
         jPanel.add(playerField);
         jPanel.add(heField);
-
-
     }
 
     public void update() {
         playerField.updateField(true);
         heField.updateField(false);
     }
+
 
     @Override
     void close() {

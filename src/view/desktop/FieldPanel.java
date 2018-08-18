@@ -47,27 +47,44 @@ class FieldPanel extends JPanel {
     }
 
     void updateField(boolean showShip) {
-        for (CellButton[] row: buttonCells) {
-            update(row, showShip);
-        }
-    }
-
-    private void update(CellButton[] row, boolean showShip) {
-        for(CellButton cellButton: row)
-            if(cellButton.getCondition() == CellCondition.EMPTY)
-                cellButton.setBackground(new Color(100, 150, 255));
-            else if(cellButton.getCondition() == CellCondition.SHIP)
-                if(showShip)
-                    cellButton.setBackground(Color.GREEN);
-                else
-                    cellButton.setBackground(new Color(100, 150, 255));
-            else if(cellButton.getCondition() == CellCondition.KILL_EMPTY)
-                cellButton.setBackground(Color.WHITE);
-            else if(cellButton.getCondition() == CellCondition.KILL_SHIP)
-                cellButton.setBackground(Color.RED);
+        for (int i = 0; i < 10; i++)
+            for (int j = 0; j < 10; j++)
+                if(justCells[i][j].getCondition() == CellCondition.EMPTY)
+                    buttonCells[i][j].setBackground(new Color(100, 150, 255));
+                else if(justCells[i][j].getCondition() == CellCondition.SHIP)
+                    if(showShip)
+                        buttonCells[i][j].setBackground(Color.GREEN);
+                    else
+                        buttonCells[i][j].setBackground(new Color(100, 150, 255));
+                else if(justCells[i][j].getCondition() == CellCondition.KILL_EMPTY)
+                    buttonCells[i][j].setBackground(Color.WHITE);
+                else if(justCells[i][j].getCondition() == CellCondition.KILL_SHIP)
+                    buttonCells[i][j].setBackground(Color.RED);
     }
 
     CellButton[][] getButtonCells() {
         return buttonCells;
+    }
+
+    void addListner(ArenaEditor arenaEditor, Player player, JLabel jLabel) {
+        for(int i = 0; i < buttonCells.length; i++) {
+            for(int j = 0; j < buttonCells[i].length; j++) {
+                buttonCells[i][j].addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        CellButton button = (CellButton) e.getSource();
+                        try {
+                            player.getField().stateShipOnFlied(player.getFleet().getShip(arenaEditor.number++), button.x, button.y);
+                        } catch (Exception e1) {
+                            jLabel.setText("Здесь нельзя");
+                            arenaEditor.number--;
+                        }
+                        updateField(true);
+                        System.out.print(arenaEditor.number);
+                        arenaEditor.updateText(player);
+                    }
+                });
+            }
+        }
     }
 }

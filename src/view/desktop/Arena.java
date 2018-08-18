@@ -1,16 +1,12 @@
 package view.desktop;
 
-import battlefield.Field;
-
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 
-public abstract class Arena extends JFrame {
+abstract class Arena extends JFrame {
 
-    protected JPanel jPanel = new JPanel();
-    protected FieldPanel playerField;
-
+    JPanel jPanel = new JPanel();
+    FieldPanel playerField;
 
     Arena(String title) {
         super(title);
@@ -18,7 +14,11 @@ public abstract class Arena extends JFrame {
         setLocationRelativeTo(null);
         add(jPanel);
         jPanel.setLayout(new GridLayout(1, 2));
+
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel.setLayout(new GridLayout(1, 2));
+        add(jPanel);
     }
 
     abstract void close();
