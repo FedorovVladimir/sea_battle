@@ -1,6 +1,7 @@
 package battlefield;
 
 public class Ship {
+
     private int x;
     private int y;
     private int length;
@@ -23,14 +24,14 @@ public class Ship {
             orientation = ShipOrientation.HORIZONTALLY;
     }
 
-    boolean live(Field field) {
+    boolean live(ButtleField buttleField) {
         if(condition == ShipCondition.DIE)
             return false;
         boolean isLive = false;
         int x = this.x;
         int y = this.y;
         for (int i = 0; i < length; i++) {
-            if(field.getMatrix()[x][y].getCondition() == CellCondition.SHIP)
+            if(buttleField.getCondition(x, y) == CellCondition.SHIP)
                 isLive = true;
             if (orientation == ShipOrientation.HORIZONTALLY)
                 x++;
@@ -38,15 +39,15 @@ public class Ship {
                 y++;
         }
         if(!isLive)
-            die(field);
+            die(buttleField);
 
         return isLive;
     }
 
-    private void die(Field field) {
+    private void die(ButtleField buttleField) {
         condition = ShipCondition.DIE;
         for (int i = 0; i < length; i++) {
-            field.die(x, y);
+            buttleField.die(x, y);
             if (orientation == ShipOrientation.HORIZONTALLY)
                 x++;
             else
@@ -54,24 +55,11 @@ public class Ship {
         }
     }
 
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getLength() {
+    int getLength() {
         return length;
     }
 
-    public ShipOrientation getOrientation() {
+    ShipOrientation getOrientation() {
         return orientation;
     }
-
-    public ShipCondition getCondition() {
-        return condition;
-    }
-
 }
