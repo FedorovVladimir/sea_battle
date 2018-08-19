@@ -1,25 +1,34 @@
 package game;
 
-import battlefield.ButtleField;
+import battlefield.Field;
+import battlefield.Fleet;
 
 public abstract class Player {
-    private String name;
-    private ButtleField buttleField = new ButtleField();
+    String name;
+    private Field field = new Field();
+    private Fleet fleet = new Fleet();
     private boolean isWin = false;
-    private boolean isStep = false;
-    private View view;
+    private Boolean isStep = false;
+    protected View view;
 
     public Player(String name) {
         this.name = name;
         setView();
     }
 
-    public void shot(Player player) {
 
+    public String getName() {
+        return name;
     }
 
-    public void stepOn(Player opponent) {
-        view.step(this, opponent);
+    public abstract void setView();
+
+    public void putFleet() {
+        view.putFleet(this);
+    }
+
+    public void step(Player he) {
+        view.step(this, he);
     }
 
     public void win() {
@@ -30,20 +39,12 @@ public abstract class Player {
         view.lose();
     }
 
-
-
-    protected abstract void setView();
-    
-    public String getName() {
-        return name;
+    public Field getField() {
+        return field;
     }
 
-    public void putFleet() {
-        view.putFleet(this);
-    }
-
-    public ButtleField getButtleField() {
-        return buttleField;
+    public Fleet getFleet() {
+        return fleet;
     }
 
     public boolean isWin() {
@@ -60,9 +61,5 @@ public abstract class Player {
 
     public void setWin(boolean win) {
         isWin = win;
-    }
-
-    public int getCountShips() {
-        return buttleField.getCountShips();
     }
 }

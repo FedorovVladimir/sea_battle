@@ -49,12 +49,10 @@ public class Desktop implements View {
     @Override
     public void win(String name) {
         JOptionPane.showMessageDialog(null,name + ", вы победили");
-        arena.dispose();
     }
 
     @Override
     public void lose() {
         JOptionPane.showMessageDialog(null,"Семь раз отмерь, один раз отрежь");
-        arena.dispose();
     }
 }
