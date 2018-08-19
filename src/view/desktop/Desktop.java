@@ -55,4 +55,5 @@ public class Desktop implements View {
     public void lose() {
         JOptionPane.showMessageDialog(null,"Семь раз отмерь, один раз отрежь");
     }
+
 }
