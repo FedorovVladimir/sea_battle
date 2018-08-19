@@ -4,7 +4,7 @@ import game.Player;
 
 public class ConsolePlayer extends Player {
 
-    public ConsolePlayer(String name) {
+    ConsolePlayer(String name) {
         super(name);
     }
 
